@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import "./App.css";
 import MovieCard from "./component/MovieCard";
+import AddMovieForm from "./component/AddMovieForm";
 
 function App() {
   const [moviesList, setMoviesList] = useState([]);
@@ -39,12 +40,15 @@ function App() {
   return (
     <div className="App bg-gray-200 h-screen flex flex-col items-center gap-5">
       <h1 className="text-xl font-bold">Movies List</h1>
-      <button
-        onClick={fetchMovie}
-        className="bg-blue-600 text-white px-5 py-2 rounded-2xl"
-      >
-        Load Movies
-      </button>
+      <div className="bg-white p-8 rounded-xl w-1/2">
+        <AddMovieForm />
+        <button
+          onClick={fetchMovie}
+          className="bg-blue-600 text-white px-5 py-2 rounded-2xl"
+        >
+          Load Movies
+        </button>
+      </div>
       <div className="bg-white p-8 rounded-xl w-1/2">
         {isLoading && <div>Loading</div>}
         {!isLoading && moviesList.length == 0 && error == null && (
