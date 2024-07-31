@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AddMovieForm = () => {
+const AddMovieForm = (props) => {
   const [formState, setFormState] = useState({
     title: "",
     opening_text: "",
@@ -31,7 +31,7 @@ const AddMovieForm = () => {
 
   function formSubmitHandler(e) {
     e.preventDefault();
-    console.log(formState);
+    props.onAddMovie(formState);
   }
 
   return (
